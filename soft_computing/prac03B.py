@@ -53,3 +53,6 @@ while True:
             
 print("*"*30)
 print("Final output")
+print("Corrected weights",weights)
+print("actual",actual)
+print("desired",desired)

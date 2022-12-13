@@ -12,11 +12,11 @@ b = float(input("Enter the bias b = "))
 w = float(input("Enter the weight w = "))
 net = b + x * w
 print("****----OUTPUT----****")
-print("net = ", net)
+print("net =", net)
 if(net < 0):
     out = 0
 elif (net >= 0) & (net <= 1):
     out = net
 else:
     out = 1
-print("Output = ", out)
+print("Output =", out)

@@ -10,7 +10,7 @@ Created on Sat Dec 10 17:22:59 2022
 First input wuth target = 1
 New wt = [0 1 0 0 0 0 0 0 0]
 Bias value = 1
-Second inp-ut with target = -1
+Second input with target = -1
 Bias value =  0
 """
 
@@ -35,7 +35,7 @@ b= b + y[0]
 print("New wt =", wtnew)
 print("Bias value =", b)
 
-print("Second inp-ut with target = -1")
+print("Second input with target = -1")
 for i in range(0,9):
     wtnew[i] = wtold[i] + x2[i] * y[1]
 b= b + y[1]
