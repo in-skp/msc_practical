@@ -26,9 +26,12 @@ ax.set_ylabel("sourness")
 ax.set_xlim([-1, 6])
 ax.set_ylim([-1, 8])
 X=np.arange(-0.5,5,0.1)
-index = 10
+size = 10
 for (index, (x,y)) in enumerate(points):
-    ax.plot(x, y, '*', color="darkorange")
+    if index == 0:
+        ax.plot(x, y, 'o', color="darkorange", markersize = size)
+    else:
+        ax.plot(x, y, 'oy', markersize = size)
     
 step = 0.05
 

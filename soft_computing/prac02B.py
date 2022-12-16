@@ -4,8 +4,8 @@
 # Enter weights
 # Weight w11 = 1
 # Weight w12 = -1
-# Weight w12 = -1
-# Weight w12 = 1
+# Weight w21 = -1
+# Weight w22 = 1
 # Weight v1 = 1
 # Weight v2 = -1
 # Enter Threshold Value 
@@ -32,8 +32,8 @@ import numpy as np
 print("Enter weights")
 w11 = int(input("Weight w11 = "))
 w12 = int(input("Weight w12 = "))
-w21 = int(input("Weight w12 = "))
-w22 = int(input("Weight w12 = "))
+w21 = int(input("Weight w21 = "))
+w22 = int(input("Weight w22 = "))
 v1 = int(input("Weight v1 = "))
 v2 = int(input("Weight v2 = "))
 print("Enter Threshold Value ")
@@ -83,8 +83,8 @@ while con == 1:
         print("Net is not learning, Enter another set of weights and threshold value")
         w11 = int(input("Weight w11 = "))
         w12 = int(input("Weight w12 = "))
-        w21 = int(input("Weight w12 = "))
-        w22 = int(input("Weight w12 = "))
+        w21 = int(input("Weight w21 = "))
+        w22 = int(input("Weight w22 = "))
         v1 = int(input("Weight v1 = "))
         v2 = int(input("Weight v2 = "))
         theta = int(input("theta = "))
