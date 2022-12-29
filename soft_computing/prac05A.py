@@ -1,36 +1,34 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Dec 11 13:42:44 2022
+from neurodynex3.hopfield_network import network, pattern_tools, plot_tools
 
-@author: Santosh Parse
-@program name: Write a program compute final state
---------------- OUTPUT --------------
-Final_State =  [ 1 -1 -1  1]
-is_stable =  True
-"""
-import numpy as np
-def compute_next_state(state, weight):
-    next_state = np.where(weight @state >=0,+1,-1)
-    return next_state
+pattern_size = 5
 
-def compute_final_state(initial_state, weight, max_iter=1000):
-    previous_state = initial_state
-    next_state = compute_next_state(previous_state, weight)
-    is_stable = np.all(previous_state==next_state)
-    n_iter = 0
-    while(not is_stable) and (n_iter<=max_iter):
-        previous_state = next_state
-        next_state = compute_next_state(previous_state, weight)
-        is_stable = np.all(previous_state==next_state)
-        n_iter+=1
-    return previous_state, is_stable, n_iter
+# create an instance of the class HopfieldNetwork
+hopfield_net = network.HopfieldNetwork(nr_neurons= pattern_size**2)
+# instantiate a pattern factory
+factory = pattern_tools.PatternFactory(pattern_size, pattern_size)
+# create a checkerboard pattern and add it to the pattern list
+checkerboard = factory.create_checkerboard()
+pattern_list = [checkerboard]
 
-initial_state = np.array([+1,-1,-1,-1])
-weight = np.array([[0,-1,-1,+1],
-                  [-1,0,+1,1],
-                  [-1,+1,0,-1],
-                  [+1,-1,-1,0]])
-    
-final_state, is_stable, n_tier = compute_final_state(initial_state, weight)
-print("Final_State = ", final_state)
-print("is_stable = ",is_stable)
+# add random patterns to the list
+pattern_list.extend(factory.create_random_pattern_list(nr_patterns=3, on_probability=0.5))
+plot_tools.plot_pattern_list(pattern_list)
+# how similar are the random patterns and the checkerboard? Check the overlaps
+overlap_matrix = pattern_tools.compute_overlap_matrix(pattern_list)
+plot_tools.plot_overlap_matrix(overlap_matrix)
+
+# let the hopfield network "learn" the patterns. Note: they are not stored
+# explicitly but only network weights are updated !
+hopfield_net.store_patterns(pattern_list)
+
+# create a noisy version of a pattern and use that to initialize the network
+noisy_init_state = pattern_tools.flip_n(checkerboard, nr_of_flips=4)
+hopfield_net.set_state_from_pattern(noisy_init_state)
+
+# from this initial state, let the network dynamics evolve.
+states = hopfield_net.run_with_monitoring(nr_steps=4)
+
+# each network state is a vector. reshape it to the same shape used to create the patterns.
+states_as_patterns = factory.reshape_patterns(states)
+# plot the states of the network
+plot_tools.plot_state_sequence_and_overlap(states_as_patterns, pattern_list, reference_idx=0, suptitle="Network dynamics")
