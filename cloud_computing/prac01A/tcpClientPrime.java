@@ -1,4 +1,4 @@
-package prac01;
+package prac01A;
 
 import java.net.*;
 import java.io.*;
