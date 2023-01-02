@@ -37,7 +37,7 @@ print('='*65)
 
 # Output Agreement
 OutputData = ProcessData
-print('Storing File')
 sOutputFileName = sInputFileName = 'C:/VKHCG/05-DS/9999-Data/Lena-HORUS-Picture.csv'
+print('Storing File :', sOutputFileName)
 OutputData.to_csv(sOutputFileName, index=False)
 print('='*20 + ' Picture to HORUS - Done ' + '='*20) 
