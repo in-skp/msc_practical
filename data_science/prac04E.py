@@ -59,7 +59,7 @@ for sCompany in sCompanies:
         logging.getLogger('').addHandler(console)
 
         # Test root loggin
-        # logging.info('Practical Data Science is fun!.')
+        logging.info('Practical Data Science is fun!.')
 
         # Test all other levels
         for sLevel in sLevels:
