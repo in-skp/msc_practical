@@ -20,7 +20,7 @@ public class BroadcastServer {
         for (;;) {
             Thread.sleep(10000);
             System.out.println("Sending ");
-            String str = ("This is Pushpa Calling....");
+            String str = ("This is Broadcast Server Calling....");
             data = str.getBytes();
             packet = new DatagramPacket(data, str.length(), address, PORT);
             // Sends the packet
