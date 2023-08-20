@@ -1,0 +1,81 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = C:\Users\SPA834\AppData\Local\Temp
+    udp = 10001
+    [[3725]]
+        image = C:\Users\SPA834\OneDrive - Maersk Group\Documents\SPA834\SKP\My Docs\Masters\Practicals\Sem II\MN\c3725-adventerprisek9-mz124-15.image
+        ram = 128
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 3725
+        console = 2101
+        aux = 2501
+        cnfg = configs\R1.cfg
+        f0/0 = R2 f0/0
+        f0/1 = R3 f0/1
+        x = -91.0
+        y = -206.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3725
+        console = 2102
+        aux = 2502
+        cnfg = configs\R2.cfg
+        f0/0 = R1 f0/0
+        x = -302.0
+        y = 44.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3725
+        console = 2104
+        aux = 2503
+        cnfg = configs\R3.cfg
+        f0/1 = R1 f0/1
+        x = 120.0
+        y = 43.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "f0/1"
+        x = 5.82556934421
+        y = -53.3936869255
+        interface = R3 f0/1
+    [[NOTE 2]]
+        text = "f0/0"
+        x = 30.1650420937
+        y = -66.2691879487
+        interface = R2 f0/0
+    [[NOTE 3]]
+        text = "f0/1"
+        x = 74.1744306558
+        y = 39.3936869255
+        interface = R1 f0/1
+    [[NOTE 4]]
+        text = "f0/0"
+        x = -57.1650420937
+        y = 40.2691879487
+        interface = R1 f0/0
+    [[SHAPE 1]]
+        type = ellipse
+        x = -153.0
+        y = -272.0
+        width = 200.0
+        height = 200.0
+        border_style = 2
+    [[SHAPE 2]]
+        type = ellipse
+        x = 55.0
+        y = -44.0
+        width = 200.0
+        height = 200.0
+        border_style = 2
+    [[SHAPE 3]]
+        type = ellipse
+        x = -356.0
+        y = -51.0
+        width = 200.0
+        height = 200.0
+        border_style = 2
