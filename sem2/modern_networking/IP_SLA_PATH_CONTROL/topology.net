@@ -1,0 +1,72 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = C:\Users\SPA834\AppData\Local\Temp
+    udp = 10001
+    [[3725]]
+        image = C:\Users\SPA834\OneDrive - Maersk Group\Documents\SPA834\SKP\My Docs\Masters\Practicals\Sem II\MN\c3725-adventerprisek9-mz124-15.image
+        ram = 128
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 3725
+        console = 2101
+        aux = 2501
+        cnfg = configs\R1.cfg
+        f0/0 = R2 f0/0
+        f0/1 = R3 f0/0
+        x = -196.0
+        y = 70.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3725
+        console = 2102
+        aux = 2502
+        cnfg = configs\R2.cfg
+        f0/0 = R1 f0/0
+        f0/1 = R3 f0/1
+        x = -474.0
+        y = -148.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3725
+        console = 2104
+        aux = 2503
+        cnfg = configs\R3.cfg
+        f0/0 = R1 f0/1
+        f0/1 = R2 f0/1
+        x = 8.0
+        y = -153.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "f0/1"
+        x = -68.9978480069
+        y = -14.5850845642
+        interface = R3 f0/1
+    [[NOTE 2]]
+        text = "f0/0"
+        x = 5.00099441684
+        y = 60.5136188483
+        interface = R3 f0/0
+    [[NOTE 3]]
+        text = "f0/1"
+        x = 89.9978480069
+        y = -16.4149154358
+        interface = R2 f0/1
+    [[NOTE 4]]
+        text = "f0/0"
+        x = 36.4762927099
+        y = 69.6828482401
+        interface = R2 f0/0
+    [[NOTE 5]]
+        text = "f0/1"
+        x = 81.9990055832
+        y = -13.5136188483
+        interface = R1 f0/1
+    [[NOTE 6]]
+        text = "f0/0"
+        x = -63.4762927099
+        y = -11.6828482401
+        interface = R1 f0/0
