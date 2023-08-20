@@ -1,0 +1,143 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = C:\Users\SPA834\AppData\Local\Temp
+    udp = 10001
+    [[3725]]
+        image = C:\Users\SPA834\OneDrive - Maersk Group\Documents\SPA834\SKP\My Docs\Masters\Practicals\Sem II\MN\c3725-adventerprisek9-mz124-15.image
+        ram = 128
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 3725
+        console = 2101
+        aux = 2501
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/0
+        s0/1 = R3 s0/0
+        f0/0 = SW1 1
+        cnfg = configs\R1.cfg
+        x = -237.0
+        y = -153.0
+        z = 1.0
+        hx = -7.0
+        hy = -29.0
+    [[ROUTER R2]]
+        model = 3725
+        console = 2102
+        aux = 2502
+        wic0/0 = WIC-1T
+        s0/0 = R1 s0/0
+        f0/0 = SW2 1
+        f0/1 = R3 f0/1
+        cnfg = configs\R2.cfg
+        x = -453.0
+        y = 78.0
+        z = 1.0
+        hx = 9.0
+        hy = -32.0
+    [[ROUTER R3]]
+        model = 3725
+        console = 2104
+        aux = 2503
+        wic0/0 = WIC-1T
+        s0/0 = R1 s0/1
+        f0/0 = SW3 1
+        f0/1 = R2 f0/1
+        cnfg = configs\R3.cfg
+        x = 52.0
+        y = 81.0
+        z = 1.0
+        hx = 41.0
+        hy = -25.0
+    [[ETHSW SW1]]
+        1 = access 1 R1 f0/0
+        x = -235.5
+        y = -259.0
+        z = 1.0
+    [[ETHSW SW3]]
+        1 = access 1 R3 f0/0
+        x = 262.5
+        y = 91.0
+        z = 1.0
+    [[ETHSW SW2]]
+        1 = access 1 R2 f0/0
+        x = -637.5
+        y = 83.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "1"
+        x = -4.49294859077
+        y = 15.2489587119
+        interface = SW3 1
+    [[NOTE 2]]
+        text = "1"
+        x = 75.4993962219
+        y = 16.2197769023
+        interface = SW2 1
+    [[NOTE 3]]
+        text = "1"
+        x = 41.0723387795
+        y = 31.9745141739
+        interface = SW1 1
+    [[NOTE 4]]
+        text = "f0/1"
+        x = -47.9992942055
+        y = 32.7623804305
+        interface = R3 f0/1
+    [[NOTE 5]]
+        text = "f0/0"
+        x = 67.9929485908
+        y = 34.7510412881
+        interface = R3 f0/0
+    [[NOTE 6]]
+        text = "s0/0"
+        x = -14.3985747628
+        y = -42.459163526
+        interface = R3 s0/0
+    [[NOTE 7]]
+        text = "f0/1"
+        x = 67.9992942055
+        y = 34.2376195695
+        interface = R2 f0/1
+    [[NOTE 8]]
+        text = "f0/0"
+        x = -29.9993962219
+        y = 34.7802230977
+        interface = R2 f0/0
+    [[NOTE 9]]
+        text = "s0/0"
+        x = 73.4329828363
+        y = -38.8733442317
+        interface = R2 s0/0
+    [[NOTE 10]]
+        text = "f0/0"
+        x = 46.4276612205
+        y = -26.9745141739
+        interface = R1 f0/0
+    [[NOTE 11]]
+        text = "s0/1"
+        x = 80.3985747628
+        y = 30.459163526
+        interface = R1 s0/1
+    [[NOTE 12]]
+        text = "s0/0"
+        x = -57.4329828363
+        y = 30.8733442317
+        interface = R1 s0/0
+    [[SHAPE 1]]
+        type = ellipse
+        x = -343.0
+        y = -290.0
+        width = 288.0
+        height = 233.0
+        border_style = 2
+    [[SHAPE 2]]
+        type = ellipse
+        x = -664.0
+        y = -2.0
+        width = 1089.0
+        height = 200.0
+        border_style = 2
