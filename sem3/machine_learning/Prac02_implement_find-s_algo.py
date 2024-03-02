@@ -1,3 +1,4 @@
+# concept learning / two way classification / binary classification
 import csv
 num_attribute = 6
 a = []
