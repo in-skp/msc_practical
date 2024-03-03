@@ -4,7 +4,7 @@ num_attribute = 6
 a = []
 
 print('\n The Given Training Dataset \n')
-with open('data\enjoysport.csv', 'r') as csvfile:
+with open('data\\enjoysport.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
     count = 0
     for row in reader:
@@ -38,3 +38,4 @@ for i in range(0, len(a)):
 
 print('\n The Maximally specific hypothesis for a given training example: \n')
 print(hypothesis)
+print('\n')

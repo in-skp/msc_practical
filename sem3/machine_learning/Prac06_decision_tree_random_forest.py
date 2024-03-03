@@ -53,12 +53,14 @@ def print_score(clf, X_train, y_train, X_test, y_test, train=True):
 
 
 # Decision Tree Classifier
+print("DECISION TREE CLASSIFIER")
 tree_clf = DecisionTreeClassifier(random_state=42)
 tree_clf.fit(X_train, y_train)
 print_score(tree_clf, X_train, y_train, X_test, y_test, train=True)
 print_score(tree_clf, X_train, y_train, X_test, y_test, train=False)
 
 # Random Forest classifier
+print("RANDOM FOREST CLASSIFIER")
 rf_clf = RandomForestClassifier(random_state=42)
 rf_clf.fit(X_train, y_train)
 print_score(rf_clf, X_train, y_train, X_test, y_test, train=True)

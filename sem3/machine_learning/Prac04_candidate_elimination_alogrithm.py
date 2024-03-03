@@ -49,3 +49,4 @@ def learn(concept, target):
 s_final, g_final = learn(concepts, target)
 print("\nFinal Specific_h:", s_final, sep="\n")
 print("\nFinal General_h:", g_final, sep="\n")
+print("\n")
